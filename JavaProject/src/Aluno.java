@@ -28,11 +28,11 @@ public class Aluno {
 //        this.idade = idade;
 //        this.dataNascimento = dataNascimento;
 
-
         setNome(nome);
         setAltura(altura);
         setIdade(idade);
         setDataNascimento(dataNascimento);
+
     }
 
     /**
@@ -130,8 +130,17 @@ public class Aluno {
             this.nome = nome;
         else
             System.out.println("Erro: Nome inválido");
-
     }
+
+    //Object object = null --> objecto não está inicializado
+    //nome = null ---->  variável não está inicializada
+    //nome = ""  ----> 12345
+    //nome.equals("")
+
+    //String nome = new String("nome")
+    //String nome = "nome"
+
+
 
     /**
      * Overload
@@ -157,6 +166,9 @@ public class Aluno {
                 this.dataNascimento.getDayOfMonth() + ", no mês " + this.dataNascimento.getMonth() + " no ano " +
                 this.dataNascimento.getYear() + ".";
     }
+
+
+
 
 
 }
