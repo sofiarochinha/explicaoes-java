@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Aluno {
@@ -5,8 +6,14 @@ public class Aluno {
     private String nome;
     private int altura; //altura em cm
     private int idade;
-    private Date dataNascimento;
+    private LocalDate dataNascimento;
     private final static String TIPO = "ALUNO"; // Tipo de Pessoa
+
+    /**
+     * Variável que não é único para cada elemento
+     * https://www.javatpoint.com/static-keyword-in-java
+     */
+    private static String curso = "Informática";
 
     /**
      * Construtor de Aluno
@@ -15,7 +22,7 @@ public class Aluno {
      * @param idade int idade
      * @param dataNascimento Date dataNascimento
      */
-    public Aluno(String nome, int altura, int idade, Date dataNascimento){
+    public Aluno(String nome, int altura, int idade, LocalDate dataNascimento){
 //        this.nome = nome;
 //        this.altura = altura;
 //        this.idade = idade;
@@ -29,10 +36,26 @@ public class Aluno {
     }
 
     /**
+     * Obtém o curso Aluno
+     * @return String
+     */
+    public static String getCurso() {
+        return curso;
+    }
+
+    /**
+     * Obtém o tipo de Pessoa
+     * @return String
+     */
+    public static String getTIPO() {
+        return TIPO;
+    }
+
+    /**
      * Retorna a data de nascimento
      * @return Date
      */
-    public Date getDataNascimento() {
+    public LocalDate getDataNascimento() {
         return dataNascimento;
     }
 
@@ -68,7 +91,7 @@ public class Aluno {
         if(altura > 0)
             this.altura = altura;
         else
-            System.out.print("Erro: A altura tem de ser positiva");
+            System.out.println("Erro: A altura tem de ser positiva");
 
 
     }
@@ -77,11 +100,11 @@ public class Aluno {
      * Define uma data de nascimento
      * @param dataNascimento
      */
-    public void setDataNascimento(Date dataNascimento) {
-        if (dataNascimento.before(new Date()))
+    public void setDataNascimento(LocalDate dataNascimento) {
+        if (dataNascimento.isBefore(LocalDate.now()))
             this.dataNascimento = dataNascimento;
         else
-            System.out.print("Erro: Data de nascimento inválida. Tem de ser menos que a Data de Hoje");
+            System.out.println("Erro: Data de nascimento inválida. Tem de ser menos que a Data de Hoje");
 
 
     }
@@ -94,7 +117,7 @@ public class Aluno {
         if(idade > 0)
             this.idade = idade;
         else
-            System.out.print("Erro: A idade tem de ser positiva");
+            System.out.println("Erro: A idade tem de ser positiva");
 
     }
 
@@ -106,7 +129,7 @@ public class Aluno {
         if (nome != null && !nome.equals(""))
             this.nome = nome;
         else
-            System.out.print("Erro: Nome inválido");
+            System.out.println("Erro: Nome inválido");
 
     }
 
@@ -120,14 +143,18 @@ public class Aluno {
         if (primeiroNome != null && !primeiroNome.equals("") && ultimoNome != null && !ultimoNome.equals(""))
             this.nome = primeiroNome + " " + ultimoNome;
         else
-            System.out.print("Erro: Nome inválido");
+            System.out.println("Erro: Nome inválido");
 
     }
 
+    /**
+     * Método override
+     * @return String
+     */
     @Override
     public String toString() {
-        return "O " + this.TIPO + " " + this.nome + " tem " + this.idade + " anos e " + this.altura + " cm . Nasceu no dia " +
-                this.dataNascimento.getDay() + ",no mês " + this.dataNascimento.getMonth() + " no ano " +
+        return "O " + this.TIPO + " " + this.nome + " tem " + this.idade + " anos e " + this.altura + " cm. Nasceu no dia " +
+                this.dataNascimento.getDayOfMonth() + ", no mês " + this.dataNascimento.getMonth() + " no ano " +
                 this.dataNascimento.getYear() + ".";
     }
 
