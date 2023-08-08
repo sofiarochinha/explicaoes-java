@@ -1,7 +1,8 @@
-import java.time.LocalDate;
-import java.util.Date;
+package Pessoa;
 
-public class Aluno {
+import java.time.LocalDate;
+
+public class Aluno_old {
 
     private String nome;
     private int altura; //altura em cm
@@ -16,13 +17,13 @@ public class Aluno {
     private static String curso = "Informática";
 
     /**
-     * Construtor de Aluno
-     * @param nome String nome do Aluno
+     * Construtor de Pessoa.Aluno
+     * @param nome String nome do Pessoa.Aluno
      * @param altura int Altura em cm
      * @param idade int idade
      * @param dataNascimento Date dataNascimento
      */
-    public Aluno(String nome, int altura, int idade, LocalDate dataNascimento){
+    public Aluno_old(String nome, int altura, int idade, LocalDate dataNascimento){
 //        this.nome = nome;
 //        this.altura = altura;
 //        this.idade = idade;
@@ -36,7 +37,7 @@ public class Aluno {
     }
 
     /**
-     * Obtém o curso Aluno
+     * Obtém o curso Pessoa.Aluno
      * @return String
      */
     public static String getCurso() {
@@ -76,7 +77,7 @@ public class Aluno {
     }
 
     /**
-     * Retorna o nome do Aluno
+     * Retorna o nome do Pessoa.Aluno
      * @return String
      */
     public String getNome() {
