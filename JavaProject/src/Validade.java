@@ -3,6 +3,9 @@
  */
 public interface Validade {
 
-    int anos = 3;
+    int anos = 5;
     int getValidade();
+
+    int getAnos();
+
 }

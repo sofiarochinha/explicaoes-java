@@ -1,11 +1,17 @@
 import java.text.DecimalFormat;
 
+
 public class Produto implements Validade{
 
     String nome = "Produto1";
 
     @Override
     public int getValidade() {
+        return 0;
+    }
+
+    @Override
+    public int getAnos() {
         return anos;
     }
 
@@ -16,6 +22,7 @@ public class Produto implements Validade{
 
     class ProductPrice {
         int price = 10;
+
     }
 
 
