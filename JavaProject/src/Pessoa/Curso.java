@@ -4,6 +4,7 @@ public enum Curso {
 
     CIENCIAS,
     INFORMATICA,
-    FISICA
+    MATEMATICA,
 
+    LINGUAS
 }

@@ -11,7 +11,13 @@ public class Aluno extends Pessoa{
         super(nome, altura, idade, dataNascimento);
         setNumeroAluno(numeroAluno);
         setCurso(curso);
+        setNome("sofia");
 
+    }
+
+    @Override
+    public void setNome(String nome){
+        super.setNome("A" + nome);
     }
 
     public void setCurso(Curso curso) {
@@ -38,10 +44,13 @@ public class Aluno extends Pessoa{
         return numeroAluno;
     }
 
+
+
     @Override
     public String toString() {
         return "O aluno " + super.getNome() + " tem " + super.getIdade() + " anos e " + super.getAltura() + " cm. Nasceu no dia " +
                 super.getDataNascimento().getDayOfMonth() + ", no mês " +  super.getDataNascimento().getMonth() + " no ano " +
-                super.getDataNascimento().getYear() + ".";
+                super.getDataNascimento().getYear() + "." + "Numero de aluno:" + this.numeroAluno +
+                " Curso: " + this.curso;
     }
 }

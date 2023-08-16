@@ -32,10 +32,21 @@ public class Main {
 
         System.out.println(pessoa);
 
-        Aluno aluno1 = new Aluno("Aluno1", 145, 13, LocalDate.of(2004,9,2), 123, Curso.CIENCIAS);
-        Aluno aluno2 = new Aluno("Aluno2", 145, 13, LocalDate.of(2004,9,2), 123, Curso.CIENCIAS);
+        Aluno aluno1 = new Aluno("Aluno1", 145, 13,
+                LocalDate.of(2004,9,2),
+                123, Curso.LINGUAS);
+        Aluno aluno2 = new Aluno("Aluno2", 145, 13,
+                LocalDate.of(2004,9,2),
+                123, Curso.MATEMATICA);
 
-        System.out.println(aluno1);
+        if(pessoa instanceof Aluno){
+            System.out.println("sou do tipo Aluno");
+        }
+
+        for (Curso curso: Curso.values()) {
+            System.out.println(curso);
+        }
+
         System.out.println(aluno2);
     }
 }
