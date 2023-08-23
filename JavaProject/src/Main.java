@@ -1,6 +1,12 @@
+import Animais.Animal;
+import Animais.Cat;
 import Pessoa.Aluno;
 import Pessoa.Pessoa;
 import Pessoa.Curso;
+import Shape.Rectangle;
+import Vehicle.Carro;
+import Vehicle.Veiculo;
+
 import java.time.LocalDate;
 
 public class Main {
@@ -27,7 +33,7 @@ public class Main {
 //        System.out.println(produto.getAnos());
 //        Escola escola = new Escola();
 
-
+/*
         Pessoa pessoa = new Pessoa("Sofia", 123, 12, LocalDate.of(2001,8,20));
 
         System.out.println(pessoa);
@@ -47,6 +53,20 @@ public class Main {
             System.out.println(curso);
         }
 
-        System.out.println(aluno2);
+        System.out.println(aluno2);*/
+
+        Cat cat = new Cat();
+        cat.makeSound();
+        Animal animal = new Animal();
+        animal.makeSound();
+
+        Veiculo veiculo = new Veiculo();
+        Carro carro = new Carro();
+        veiculo.drive();
+        carro.drive();
+
+        Rectangle rectangle = new Rectangle(3.0, 4.0);
+        double area = rectangle.getArea();
+        System.out.println("a área do rectangulo é: " + area);
     }
 }
