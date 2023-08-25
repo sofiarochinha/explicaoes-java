@@ -7,7 +7,7 @@ public class Aluno extends Pessoa{
     private int numeroAluno;
     private Curso curso;
 
-    public Aluno(String nome, int altura, int idade, LocalDate dataNascimento, int numeroAluno, Curso curso) {
+    public Aluno(String nome, int altura, int idade, LocalDate dataNascimento, int numeroAluno, Curso curso) throws Exception {
         super(nome, altura, idade, dataNascimento);
         setNumeroAluno(numeroAluno);
         setCurso(curso);

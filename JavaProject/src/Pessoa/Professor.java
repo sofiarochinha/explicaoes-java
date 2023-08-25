@@ -17,7 +17,7 @@ public class Professor extends Pessoa{
 //                8 - nao tem
 
     String universidade;
-    public Professor(String nome, int altura, int idade, LocalDate dataNascimento) {
+    public Professor(String nome, int altura, int idade, LocalDate dataNascimento) throws Exception {
         super(nome, altura, idade, dataNascimento); //herdou o construtor
         universidade = "Lisboa";
     }

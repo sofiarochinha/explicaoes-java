@@ -1,15 +1,18 @@
 package Pessoa;
 
+import Exceptions.AlturaExpection;
+
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Pessoa {
+public class Pessoa implements Serializable {
 
     private String nome;
     private int altura, idade;
 
     private LocalDate dataNascimento;
 
-    public Pessoa(String nome, int altura, int idade, LocalDate dataNascimento){
+    public Pessoa(String nome, int altura, int idade, LocalDate dataNascimento) throws Exception {
 
         setNome(nome);
         setAltura(altura);
@@ -58,7 +61,7 @@ public class Pessoa {
         if(altura > 0)
             this.altura = altura;
         else
-            System.out.println("Erro: A altura tem de ser positiva");
+            throw new AlturaExpection();
 
 
     }
@@ -80,11 +83,11 @@ public class Pessoa {
      * Define uma idade
      * @param idade
      */
-    public void setIdade(int idade) {
+    public void setIdade(int idade) throws Exception {
         if(idade > 0)
             this.idade = idade;
         else
-            System.out.println("Erro: A idade tem de ser positiva");
+            throw new Exception("A idade tem de ser positiva");
 
     }
 

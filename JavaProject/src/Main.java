@@ -1,72 +1,113 @@
-import Animais.Animal;
-import Animais.Cat;
-import Pessoa.Aluno;
 import Pessoa.Pessoa;
+import Pessoa.Aluno;
 import Pessoa.Curso;
-import Shape.Rectangle;
-import Vehicle.Carro;
-import Vehicle.Veiculo;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
 
 public class Main {
+
     public static void main(String[] args) {
 
-//        Aluno aluno1 = new Aluno("Aluno1", 150, 12, LocalDate.of(2001,8,20));
-//        Aluno aluno2 = new Aluno("Aluno2", 145, 13, LocalDate.of(2004,9,2));
-//
-//        System.out.println(aluno1);
-//        System.out.println(aluno2);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
-//        Produto produto = new Produto();
-//
-//        Produto.ProductPrice productPrice = produto.new ProductPrice();
-//        Produto.ProductLang productLang = produto.new ProductLang();
+        int selection = 0;
+        Scanner input = new Scanner(System.in);
 
-//        System.out.print("Nome do produto: " + produto.nome +
-//        "\nPreco do produto s/Iva: "+productPrice.price +
-//        "\nDescricao do produto: "+ productLang.descricao
-//        + "\nPreco do produto c/Iva: " + produto.getPrecoComIva() +
-//        "\nValidade: " + produto.getValidade() + " anos");
+        while(selection != 3){
 
-//        System.out.println(produto.getAnos());
-//        System.out.println(produto.getAnos());
-//        Escola escola = new Escola();
+            /***************************************************/
 
-/*
-        Pessoa pessoa = new Pessoa("Sofia", 123, 12, LocalDate.of(2001,8,20));
+            System.out.println("Choose from these choices");
+            System.out.println("-------------------------\n");
+            System.out.println("1 - Criar uma pessoa");
+            System.out.println("2 - Criar um aluno");
+            System.out.println("3 - Quit");
 
-        System.out.println(pessoa);
+            selection = input.nextInt();
+            input.nextLine();
 
-        Aluno aluno1 = new Aluno("Aluno1", 145, 13,
-                LocalDate.of(2004,9,2),
-                123, Curso.LINGUAS);
-        Aluno aluno2 = new Aluno("Aluno2", 145, 13,
-                LocalDate.of(2004,9,2),
-                123, Curso.MATEMATICA);
+            switch (selection){
+                case 1:
+                    String nome;
+                    int altura;
+                    int idade;
+                    LocalDate dataNascimento;
 
-        if(pessoa instanceof Aluno){
-            System.out.println("sou do tipo Aluno");
+                    System.out.println("Insira o nome: ");
+                    nome = input.nextLine();
+
+                    System.out.println("Insira a altura: ");
+                    altura = input.nextInt();
+                    input.nextLine();
+
+                    System.out.println("Insira a idade: ");
+                    idade = input.nextInt();
+                    input.nextLine();
+
+                    System.out.println("Insira a data de nascimento (YYYY-MM-DD): ");
+                    String data = input.nextLine();
+
+                    dataNascimento = LocalDate.parse(data, formatter);
+                    try{
+                        Pessoa pessoa = new Pessoa(nome, altura, idade, dataNascimento);
+                        System.out.println(pessoa);
+                    }catch (Exception ex){
+                        System.out.println("Ocorreu um erro: " + ex);
+                    }
+
+                    break;
+                case 2:
+                    String nomeAluno;
+                    int alturaAluno;
+                    int idadeAluno;
+                    LocalDate dataNascimentoAluno;
+
+                    System.out.println("Insira o nome: ");
+                    nomeAluno = input.nextLine();
+
+                    System.out.println("Insira a altura: ");
+                    alturaAluno = input.nextInt();
+                    input.nextLine();
+
+                    while(alturaAluno <= 0){
+                        System.out.println("A altura tem de ser maior que zero. Altura a idade: ");
+                        alturaAluno = input.nextInt();
+                        input.nextLine();
+                    }
+
+                    System.out.println("Insira a idade: ");
+                    idadeAluno = input.nextInt();
+                    input.nextLine();
+
+                    while(idadeAluno <= 0){
+                        System.out.println("A idade tem de ser maior que zero. Insira a idade: ");
+                        idadeAluno = input.nextInt();
+                        input.nextLine();
+                    }
+
+                    System.out.println("Insira a data de nascimento (YYYY-MM-DD): ");
+                    String dataAluno = input.nextLine();
+
+                    dataNascimentoAluno = LocalDate.parse(dataAluno, formatter);
+                    int numeroAluno = (int)(Math.random()*100);
+                    try {
+                        Aluno aluno = new Aluno(nomeAluno, alturaAluno, idadeAluno, dataNascimentoAluno, numeroAluno, Curso.CIENCIAS);
+                        System.out.println(aluno);
+                    }catch (Exception ex){
+                        System.out.println("Ocorreu um erro: " + ex);
+                    }finally {
+                        System.out.println("Pode criar de novo aluno");
+                    }
+                    break;
+                case 3:
+                    System.out.println("bye");
+                    break;
+                default:
+                    System.out.println("Opção inválida");
+            }
         }
 
-        for (Curso curso: Curso.values()) {
-            System.out.println(curso);
-        }
-
-        System.out.println(aluno2);*/
-
-        Cat cat = new Cat();
-        cat.makeSound();
-        Animal animal = new Animal();
-        animal.makeSound();
-
-        Veiculo veiculo = new Veiculo();
-        Carro carro = new Carro();
-        veiculo.drive();
-        carro.drive();
-
-        Rectangle rectangle = new Rectangle(3.0, 4.0);
-        double area = rectangle.getArea();
-        System.out.println("a área do rectangulo é: " + area);
     }
 }
